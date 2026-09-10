@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Escola de Educação Infantil e Berçário no Brooklin – SP | Diko Pataka</title>
-  <meta name="description" content="Escola de educação infantil e berçário no Brooklin, São Paulo, há 41 anos. 2.000 m² de espaço, inglês Red Balloon, cozinha própria e Escola Associada UNESCO. Agende uma visita!" />
-  <meta name="keywords" content="escola infantil brooklin, berçário brooklin sp, educação infantil são paulo, diko pataka, escola brooklin, berçário são paulo, educação infantil brooklin, escola bilíngue brooklin, berçário zona sul sp" />
+  <meta name="description" content="Escola de educação infantil e berçário no Brooklin, São Paulo, há 41 anos. Inglês Red Balloon todos os dias na grade, 2.000 m² de espaço, cozinha própria e Escola Associada UNESCO. Agende uma visita!" />
+  <meta name="keywords" content="escola infantil brooklin, berçário brooklin sp, educação infantil são paulo, diko pataka, escola brooklin, berçário são paulo, educação infantil brooklin, escola bilíngue brooklin, escola infantil bilingue sao paulo, red balloon brooklin, berçário zona sul sp" />
   <link rel="canonical" href="https://www.dikopataka.com.br/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Diko Pataka" />
@@ -21,7 +21,7 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="Diko Pataka" />
   <meta property="og:title" content="Escola de Educação Infantil e Berçário no Brooklin – SP | Diko Pataka" />
-  <meta property="og:description" content="41 anos de tradição em educação infantil no Brooklin. 2.000 m² de espaço, berçário desde 4 meses, inglês Red Balloon e Escola Associada UNESCO." />
+  <meta property="og:description" content="41 anos de tradição em educação infantil no Brooklin. Inglês Red Balloon todos os dias, berçário desde 4 meses e 2.000 m² de espaço." />
   <meta property="og:url" content="https://www.dikopataka.com.br/" />
   <meta property="og:image" content="https://www.dikopataka.com.br/FachadaDiko-1.png" />
   <meta property="og:image:alt" content="Fachada da escola Diko Pataka no Brooklin, São Paulo" />
@@ -42,7 +42,7 @@
         "name": "Diko Pataka",
         "alternateName": "Diko Pataka Berçário e Educação Infantil",
         "slogan": "Lugar de criança feliz",
-        "description": "Escola de educação infantil e berçário no Brooklin, São Paulo, há 41 anos. 2.000 m² de espaço para crianças de 0 a 6 anos, programa bilíngue Skies Learning by Red Balloon, cozinha própria com nutricionistas e Escola Associada à UNESCO.",
+        "description": "Escola de educação infantil e berçário no Brooklin, São Paulo, há 41 anos. Programa bilíngue Skies Learning by Red Balloon todos os dias dentro da grade, 2.000 m² de espaço para crianças de 0 a 6 anos, cozinha própria com nutricionistas e Escola Associada à UNESCO.",
         "url": "https://www.dikopataka.com.br",
         "telephone": "+55-11-97471-7114",
         "email": "dikopataka@uol.com.br",
@@ -115,8 +115,8 @@
           },
           {
             "@type": "Question",
-            "name": "A Diko Pataka tem aula de inglês?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Sim! Oferecemos o programa bilíngue Skies Learning by Red Balloon, com aulas 100% em inglês adaptadas a cada faixa etária, integrado ao nosso projeto pedagógico." }
+            "name": "Como funciona o inglês na Diko Pataka?",
+            "acceptedAnswer": { "@type": "Answer", "text": "O inglês faz parte da grade e acontece todos os dias, de segunda a sexta. As professoras da Red Balloon estão na escola diariamente, dentro da rotina das crianças, através do programa bilíngue Skies Learning by Red Balloon. Não é curso extra nem aula à parte: está incluído na mensalidade." }
           },
           {
             "@type": "Question",
@@ -629,13 +629,11 @@
     .mom-track { align-items:center; }
     .mom-panel:nth-child(even) { margin-top:72px; }
     .mom-panel:nth-child(3n) { margin-bottom:56px; }
-    .ing-sq:last-of-type { margin-top:36px; }
     .ali-mosaic > div:nth-child(2) { margin-top:36px; }
 
     @media (max-width:860px) {
       .mom-panel:nth-child(even) { margin-top:0; }
       .mom-panel:nth-child(3n) { margin-bottom:0; }
-      .ing-sq:last-of-type { margin-top:0; }
       .ali-mosaic > div:nth-child(2) { margin-top:0; }
       .mom-hwrap { overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
       .mom-hwrap::-webkit-scrollbar { display:none; }
@@ -764,43 +762,103 @@
     .bf p { font-size:.9rem; line-height:1.65; color:var(--texto-meio); }
 
     /* ═══════════════════════════════════════════════
-       INGLÊS
+       INGLÊS — todo dia, dentro da rotina
     ═══════════════════════════════════════════════ */
-    #ingles { background:var(--creme); padding:120px 0; position:relative; overflow:hidden; }
-    .ing-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:76px; align-items:center; }
-    .skies {
-      display:inline-flex; align-items:center; gap:14px;
-      background:var(--azul); border-radius:var(--r); padding:16px 22px; margin-bottom:26px;
-      transform:rotate(-.8deg);
+    #ingles {
+      background:var(--azul); color:var(--branco);
+      padding:120px 0 110px; position:relative; overflow:hidden;
     }
-    .skies-logo {
-      font-family:var(--f-disp); font-weight:900; font-size:.95rem; color:var(--amarelo);
-      line-height:1.1;
+    .ing-aura {
+      position:absolute; width:900px; height:900px; border-radius:50%;
+      background:radial-gradient(circle, rgba(75,220,255,.16), transparent 62%);
+      top:-380px; left:50%; transform:translateX(-50%); pointer-events:none;
     }
-    .skies-logo small { display:block; font-family:var(--f-body); font-weight:400; font-size:.66rem; color:rgba(255,255,255,.6); letter-spacing:.04em; }
-    .ing-text > p { font-size:1.02rem; line-height:1.85; color:var(--texto-meio); margin-bottom:30px; }
-    .ing-list { display:flex; flex-direction:column; margin-bottom:36px; }
+    #ingles .w { position:relative; z-index:2; }
+
+    .ing-top { max-width:760px; margin:0 auto 56px; text-align:center; }
+    .ing-badge {
+      display:inline-flex; align-items:center; gap:10px;
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.24);
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border-radius:100px; padding:9px 20px; margin-bottom:26px;
+    }
+    .ing-badge b { font-family:var(--f-disp); font-weight:900; font-size:.86rem; letter-spacing:-.01em; color:var(--amarelo); }
+    .ing-badge i { font-style:normal; font-size:.74rem; font-weight:500; color:rgba(255,255,255,.65); }
+    .ing-h2 { color:var(--branco); margin-bottom:22px; }
+    .ing-h2 .y { color:var(--amarelo); }
+    .ing-lead { font-size:1.06rem; line-height:1.8; color:rgba(255,255,255,.72); }
+    .ing-lead strong { color:var(--branco); font-weight:700; }
+
+    /* faixa da semana: a prova de que é todo dia */
+    .ing-week { text-align:center; margin-bottom:56px; }
+    .ing-days { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:16px; }
+    .ing-day {
+      width:88px; height:88px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--f-disp); font-weight:900; font-size:1.05rem; letter-spacing:.02em;
+      background:var(--amarelo); color:var(--texto);
+      box-shadow:0 10px 30px rgba(255,198,13,.28);
+      transition:transform .3s var(--ease);
+    }
+    .ing-day:hover { transform:translateY(-5px) rotate(-3deg); }
+    .ing-week-cap { font-family:var(--f-hand); font-weight:600; font-size:1.3rem; color:var(--azul-claro); }
+
+    /* marquee bilíngue */
+    .ing-bi {
+      overflow:hidden; margin-bottom:72px; padding:20px 0;
+      border-top:1px solid rgba(255,255,255,.14);
+      border-bottom:1px solid rgba(255,255,255,.14);
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+              mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+    }
+    .ing-bi-track { display:flex; gap:44px; width:max-content; animation:mq 40s linear infinite; }
+    .ing-bi-track span {
+      display:flex; align-items:center; gap:12px; white-space:nowrap;
+      font-size:1.05rem; font-weight:300; color:rgba(255,255,255,.5);
+    }
+    .ing-bi-track span::after { content:'·'; margin-left:32px; color:rgba(255,255,255,.25); }
+    .ing-bi-track i {
+      font-style:normal; font-family:var(--f-disp); font-weight:900;
+      color:var(--amarelo); position:relative; padding-left:26px;
+    }
+    .ing-bi-track i::before {
+      content:'⇄'; position:absolute; left:0; font-family:var(--f-body);
+      font-weight:400; color:var(--azul-claro); font-size:.9em;
+    }
+
+    /* base: fotos + diferenciais */
+    .ing-bottom { display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:center; }
+    .ing-photos { position:relative; }
+    .ing-tall { border-radius:150px 150px var(--r) var(--r); overflow:hidden; }
+    .ing-sq {
+      position:absolute; right:-13%; bottom:-30px; width:54%;
+      border-radius:var(--r); overflow:hidden;
+      border:5px solid var(--azul);
+      box-shadow:0 20px 48px rgba(0,0,0,.3);
+      transform:rotate(3deg);
+    }
+    .ing-tall img { width:100%; aspect-ratio:3/4; object-fit:cover; }
+    .ing-sq img { width:100%; aspect-ratio:4/3; object-fit:cover; }
+    .ing-photos img { transition:transform .7s var(--ease); }
+    .ing-photos > div:hover img { transform:scale(1.05); }
+
+    .ing-feats { display:flex; flex-direction:column; gap:4px; }
     .ing-item {
-      display:flex; align-items:center; gap:16px;
-      padding:16px 4px; border-bottom:1.5px dashed rgba(4,43,198,.2);
-      font-size:.95rem; font-weight:500; color:var(--texto);
+      display:flex; align-items:flex-start; gap:16px;
+      padding:20px 4px; border-bottom:1px solid rgba(255,255,255,.12);
       transition:padding-left .3s var(--ease);
     }
-    .ing-item:hover { padding-left:14px; }
-    .ing-item:first-child { border-top:1.5px dashed rgba(4,43,198,.2); }
+    .ing-item:first-child { border-top:1px solid rgba(255,255,255,.12); }
+    .ing-item:hover { padding-left:12px; }
+    .ing-item b { display:block; font-family:var(--f-disp); font-weight:900; font-size:1rem; color:var(--branco); margin-bottom:4px; }
+    .ing-item div { font-size:.92rem; line-height:1.6; color:rgba(255,255,255,.62); }
     .ing-check {
       flex-shrink:0; width:26px; height:26px; border-radius:50%;
       background:var(--amarelo); color:var(--texto);
       display:flex; align-items:center; justify-content:center;
-      font-size:.72rem; font-weight:900;
+      font-size:.7rem; font-weight:900; margin-top:2px;
     }
-    .ing-photos { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-    .ing-tall { grid-row:span 2; border-radius:140px 140px var(--r) var(--r); overflow:hidden; }
-    .ing-sq   { border-radius:var(--r); overflow:hidden; }
-    .ing-tall img { width:100%; height:100%; object-fit:cover; }
-    .ing-sq img { width:100%; aspect-ratio:1; object-fit:cover; }
-    .ing-photos img { transition:transform .7s var(--ease); }
-    .ing-photos > div:hover img { transform:scale(1.06); }
+    .ing-feats .btn { margin-top:28px; align-self:flex-start; }
 
     /* ═══════════════════════════════════════════════
        ALIMENTAÇÃO
@@ -1095,14 +1153,32 @@
       .stick-star { width:84px; height:84px; top:auto; bottom:16%; right:6%; }
       .stick-star b { font-size:1.5rem; }
       .stick-unesco, .hero-video-tag { display:none; }
-      .mani-cols,.jor-grid,.ber-grid,.ing-grid,.ali-grid,.con-grid,.edu-intro { grid-template-columns:1fr; gap:44px; }
+      .mani-cols,.jor-grid,.ber-grid,.ing-bottom,.ali-grid,.con-grid,.edu-intro { grid-template-columns:1fr; gap:44px; }
       .mom-hdr { flex-direction:column; align-items:flex-start; }
       .mom-hdr p { text-align:left; }
       .foo-grid { grid-template-columns:1fr; gap:44px; }
       .foo-bot { flex-direction:column; text-align:center; }
       .jor-polaroid { right:0; }
     }
+    @media (max-width:860px) {
+      #ingles { padding:90px 0 80px; }
+      .ing-day { width:64px; height:64px; font-size:.86rem; }
+      .ing-days { gap:9px; }
+      .ing-bottom { gap:44px; }
+      .ing-photos { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+      .ing-tall { border-radius:120px 120px var(--r) var(--r); }
+      .ing-sq {
+        position:static; width:auto; transform:none;
+        border:none; box-shadow:none; align-self:end;
+      }
+      .ing-tall img, .ing-sq img { aspect-ratio:3/4; }
+    }
     @media (max-width:560px) {
+      .ing-day { width:56px; height:56px; font-size:.78rem; }
+      .ing-days { gap:7px; }
+      .ing-photos { grid-template-columns:1fr; }
+      .ing-tall { border-radius:var(--r); }
+      .ing-tall img, .ing-sq img { aspect-ratio:4/3; }
       .pilares,.refs,.dep-cards { grid-template-columns:1fr; }
       .stats { grid-template-columns:1fr 1fr; }
       .stat { padding:30px 16px; }
@@ -1130,10 +1206,10 @@
 
   <!-- MOBILE MENU -->
   <nav class="mob-menu" id="mobMenu" role="dialog" aria-label="Menu principal">
-    <a href="#jornada" onclick="closeMob()"><span class="mm-num">01</span>Nossa Jornada</a>
-    <a href="#educacao" onclick="closeMob()"><span class="mm-num">02</span>Educação Infantil</a>
-    <a href="#bercario" onclick="closeMob()"><span class="mm-num">03</span>Berçário</a>
-    <a href="#ingles" onclick="closeMob()"><span class="mm-num">04</span>Inglês</a>
+    <a href="#ingles" onclick="closeMob()"><span class="mm-num">01</span>Inglês todo dia</a>
+    <a href="#jornada" onclick="closeMob()"><span class="mm-num">02</span>Nossa Jornada</a>
+    <a href="#educacao" onclick="closeMob()"><span class="mm-num">03</span>Educação Infantil</a>
+    <a href="#bercario" onclick="closeMob()"><span class="mm-num">04</span>Berçário</a>
     <a href="#contato" onclick="closeMob()" style="color:var(--amarelo)"><span class="mm-num">05</span>Agende uma visita</a>
   </nav>
 
@@ -1148,10 +1224,10 @@
           </span>
         </a>
         <ul class="nav-links" role="list">
+          <li><a href="#ingles">Inglês</a></li>
           <li><a href="#jornada">Nossa Jornada</a></li>
           <li><a href="#educacao">Educação Infantil</a></li>
           <li><a href="#bercario">Berçário</a></li>
-          <li><a href="#ingles">Inglês</a></li>
           <li><a href="#contato">Contato</a></li>
           <li><a href="#contato" class="nav-cta">Agende uma visita</a></li>
         </ul>
@@ -1210,13 +1286,13 @@
         <span>Berçário desde 4 meses</span>
         <span>Educação Infantil 2–6 anos</span>
         <span>2.000 m² de quintal</span>
-        <span>Inglês Skies by Red Balloon</span>
+        <span>Inglês Red Balloon todos os dias</span>
         <span>Cozinha própria</span>
         <span>Desde sempre. Para sempre.</span>
         <span>Berçário desde 4 meses</span>
         <span>Educação Infantil 2–6 anos</span>
         <span>2.000 m² de quintal</span>
-        <span>Inglês Skies by Red Balloon</span>
+        <span>Inglês Red Balloon todos os dias</span>
         <span>Cozinha própria</span>
         <span>Desde sempre. Para sempre.</span>
       </div>
@@ -1262,6 +1338,61 @@
             <div class="stat-l">Escola Associada UNESCO</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ INGLÊS ═══════════════ -->
+    <section id="ingles" aria-labelledby="ing-h">
+      <div class="ing-aura" aria-hidden="true"></div>
+      <div class="w">
+
+        <div class="ing-top">
+          <span class="ing-badge rv">
+            <b>Skies Learning</b><i>by Red Balloon</i>
+          </span>
+          <h2 class="sec-h2 ing-h2 rv d1" id="ing-h">Aqui, inglês não é aula.<br><span class="y">É o dia inteiro.</span></h2>
+          <p class="ing-lead rv d2">
+            Não é curso extra nem aula à parte no fim da tarde. As professoras da Red Balloon
+            estão na Diko <strong>todos os dias</strong>, dentro da rotina: na roda, na
+            brincadeira, no parque e na hora da história.
+          </p>
+        </div>
+
+        <div class="ing-week rv d2">
+          <div class="ing-days" role="list" aria-label="Inglês de segunda a sexta-feira">
+            <span class="ing-day" role="listitem">Seg</span>
+            <span class="ing-day" role="listitem">Ter</span>
+            <span class="ing-day" role="listitem">Qua</span>
+            <span class="ing-day" role="listitem">Qui</span>
+            <span class="ing-day" role="listitem">Sex</span>
+          </div>
+          <p class="ing-week-cap">inglês na rotina, de segunda a sexta</p>
+        </div>
+
+        <div class="ing-bi" aria-hidden="true">
+          <div class="ing-bi-track">
+            <span>brincar <i>play</i></span><span>cantar <i>sing</i></span><span>contar <i>count</i></span>
+            <span>pintar <i>paint</i></span><span>descobrir <i>discover</i></span><span>compartilhar <i>share</i></span>
+            <span>brincar <i>play</i></span><span>cantar <i>sing</i></span><span>contar <i>count</i></span>
+            <span>pintar <i>paint</i></span><span>descobrir <i>discover</i></span><span>compartilhar <i>share</i></span>
+          </div>
+        </div>
+
+        <div class="ing-bottom">
+          <div class="ing-photos rv-l">
+            <div class="ing-tall"><img src="fotos-site/roda-sala.jpg" alt="Roda de música e movimento com as educadoras na sala da Diko Pataka" loading="lazy" /></div>
+            <div class="ing-sq"><img src="fotos-site/mural-conversa.jpg" alt="Crianças conversando em frente ao mural na Diko Pataka" loading="lazy" /></div>
+          </div>
+
+          <div class="ing-feats rv-r">
+            <div class="ing-item"><span class="ing-check" aria-hidden="true">✓</span><div><b>Imersão de verdade</b>Tudo em inglês, do bom dia à despedida, adaptado a cada faixa etária.</div></div>
+            <div class="ing-item"><span class="ing-check" aria-hidden="true">✓</span><div><b>Aprender brincando</b>Músicas, histórias, jogos e movimento, sem carteira nem lição de casa.</div></div>
+            <div class="ing-item"><span class="ing-check" aria-hidden="true">✓</span><div><b>55 anos de Red Balloon</b>A maior referência em inglês para crianças no Brasil, dentro da nossa rotina.</div></div>
+            <div class="ing-item"><span class="ing-check" aria-hidden="true">✓</span><div><b>Sem custo extra</b>O programa bilíngue faz parte da grade, incluído na mensalidade.</div></div>
+            <a href="#contato" class="btn btn-yellow magnetic">Quero conhecer o programa</a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1495,35 +1626,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════ INGLÊS ═══════════════ -->
-    <section id="ingles" aria-labelledby="ing-h">
-      <div class="w">
-        <div class="ing-grid">
-          <div class="ing-text rv-l">
-            <span class="sec-hand">programa bilíngue</span>
-            <h2 class="sec-h2" id="ing-h">Inglês que faz sentido<br><span class="blue">desde o início.</span></h2>
-            <div class="skies">
-              <span class="skies-logo">SKIES LEARNING<small>by Red Balloon · 55 anos de excelência</small></span>
-            </div>
-            <p>Formar um aluno bilíngue vai muito além de aprender uma nova língua. Unimos imersão autêntica, respeito às fases da infância e um ambiente que a criança ama estar.</p>
-            <div class="ing-list" role="list">
-              <div class="ing-item" role="listitem"><span class="ing-check" aria-hidden="true">✓</span> Aulas 100% em inglês, adaptadas a cada faixa etária</div>
-              <div class="ing-item" role="listitem"><span class="ing-check" aria-hidden="true">✓</span> Metodologia leve, divertida e baseada em vivências reais</div>
-              <div class="ing-item" role="listitem"><span class="ing-check" aria-hidden="true">✓</span> Atividades que despertam curiosidade e imaginação</div>
-              <div class="ing-item" role="listitem"><span class="ing-check" aria-hidden="true">✓</span> Músicas, histórias, jogos e movimento como protagonistas</div>
-            </div>
-            <a href="#contato" class="btn btn-blue">Saiba mais sobre o programa</a>
-          </div>
-
-          <div class="ing-photos rv-r">
-            <div class="ing-tall"><img src="fotos-site/roda-sala.jpg" alt="Roda de música e movimento com educadoras na sala da Diko Pataka" loading="lazy" /></div>
-            <div class="ing-sq"><img src="fotos-site/mural-conversa.jpg" alt="Crianças conversando em frente ao mural da Copa na Diko Pataka" loading="lazy" /></div>
-            <div class="ing-sq"><img src="fotos-site/jogo-bingo.jpg" alt="Atividade de jogos em grupo na Diko Pataka" loading="lazy" /></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══════════════ ALIMENTAÇÃO ═══════════════ -->
     <section id="alimentacao" aria-labelledby="ali-h">
       <div class="w">
@@ -1601,8 +1703,8 @@
             <p>Funcionamos de <strong>segunda a sexta, das 07h00 às 19h00</strong>, com opções de período parcial, intermediário e estendido.</p>
           </details>
           <details class="faq-item">
-            <summary>A Diko Pataka tem aula de inglês?</summary>
-            <p>Sim! Oferecemos o programa bilíngue <strong>Skies Learning by Red Balloon</strong>, com aulas 100% em inglês adaptadas a cada faixa etária, integrado ao nosso projeto pedagógico.</p>
+            <summary>Como funciona o inglês na Diko Pataka?</summary>
+            <p>O inglês faz parte da grade e acontece <strong>todos os dias</strong>, de segunda a sexta. As professoras da Red Balloon estão na escola diariamente, dentro da rotina das crianças, através do programa <strong>Skies Learning by Red Balloon</strong>. Não é curso extra nem aula à parte, e já está incluído na mensalidade.</p>
           </details>
           <details class="faq-item">
             <summary>Como funciona a alimentação na escola?</summary>
@@ -2151,6 +2253,23 @@
               scrollTrigger:{ trigger:img.closest('div,figure'), start:'top bottom', end:'bottom top', scrub:.7 } }
           );
         });
+      }
+
+      /* ── dias da semana acendem um a um ── */
+      if (typeof ScrollTrigger !== 'undefined') {
+        gsap.from('.ing-day', {
+          scale:0, opacity:0, rotation:-25,
+          duration:.6, ease:'back.out(2)', stagger:.09,
+          immediateRender:false,
+          scrollTrigger:{ trigger:'.ing-week', start:'top 84%' }
+        });
+      }
+
+      /* marquee bilíngue entra na lista de tweens do scroll */
+      const biTrack = document.querySelector('.ing-bi-track');
+      if (biTrack) {
+        biTrack.style.animation = 'none';
+        tweens.push(gsap.to(biTrack, { xPercent:-50, duration:44, ease:'none', repeat:-1 }));
       }
 
       /* o pin da galeria insere um spacer e desloca tudo abaixo:
