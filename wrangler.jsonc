@@ -1,0 +1,9 @@
+{
+  // Site estático da Diko Pataka — sem código de servidor,
+  // o Cloudflare apenas serve os arquivos desta pasta.
+  "name": "dikopataka",
+  "compatibility_date": "2026-09-10",
+  "assets": {
+    "directory": "./"
+  }
+}
