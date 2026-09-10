@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editores
+.vscode/
+.idea/
+
+# Arquivos de trabalho (não vão para o site)
+*.psd
+*.ai
+*.aep
