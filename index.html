@@ -528,7 +528,10 @@
       font-family:var(--f-disp); font-weight:900;
       font-size:clamp(2.6rem,4.5vw,4rem); line-height:1; letter-spacing:-.03em;
       color:var(--azul); margin-bottom:10px;
+      white-space:nowrap;
     }
+    /* a unidade entra menor que o número, senão "2.000 m²" não cabe na célula */
+    .stat-un { font-size:.5em; letter-spacing:0; }
     .stat:nth-child(4) .stat-n { color:var(--amarelo); }
     .stat-l { font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--texto-meio); }
 
@@ -623,6 +626,9 @@
     .mom-panel--txt {
       display:flex; align-items:center; justify-content:center;
       background:var(--amarelo); width:200px; aspect-ratio:auto;
+      /* o texto girado continua ocupando espaço na horizontal para o navegador,
+         então o painel precisa esticar junto com os vizinhos para não cortá-lo */
+      align-self:stretch;
     }
     .mom-panel--txt span {
       font-family:var(--f-disp); font-weight:900; font-size:1.7rem;
@@ -1922,7 +1928,8 @@
       const t0 = performance.now(), dur = 1700;
       (function step(now){
         const p = Math.min((now-t0)/dur, 1);
-        el.textContent = pre + Math.round((1-Math.pow(1-p,3))*to).toLocaleString('pt-BR') + suf;
+        const val = pre + Math.round((1-Math.pow(1-p,3))*to).toLocaleString('pt-BR');
+        el.innerHTML = suf ? val + '<span class="stat-un">' + suf + '</span>' : val;
         if (p<1) requestAnimationFrame(step);
       })(t0);
     }
@@ -2221,9 +2228,12 @@
         const letters = splitAny(t);
         letters.forEach(l => l.addEventListener('pointerenter', () => springLetter(l)));
         if (typeof ScrollTrigger !== 'undefined') {
+          /* sem opacidade por letra: uma letra a meio caminho parecia defeito
+             de renderização em vez de movimento */
           gsap.from(letters, {
-            yPercent:60, opacity:0, duration:.7, ease:'back.out(1.6)',
-            stagger:{ each:.018 }, immediateRender:false,
+            yPercent:45, duration:.55, ease:'back.out(1.5)',
+            stagger:{ each:.014 }, immediateRender:false,
+            onComplete() { gsap.set(letters, { clearProps:'all' }); },
             scrollTrigger:{ trigger:t, start:'top 88%' }
           });
         }
