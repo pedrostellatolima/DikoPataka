@@ -402,13 +402,19 @@
          sobra folga embaixo, então sobem um pouco para ficarem no meio */
       top:-.039em; left:.01em;
     }
+    /* o anel é montado com letras giradas uma a uma: o textPath do SVG
+       embaralha no Safari por causa do textLength */
     .stick-ring {
-      position:absolute; inset:4px; z-index:1;
+      position:absolute; inset:0; z-index:1;
       animation:ringSpin 14s linear infinite;
     }
-    .stick-ring text {
-      font-family:var(--f-body); font-weight:800; font-size:9px;
-      letter-spacing:.1em; text-transform:uppercase; fill:var(--texto);
+    .stick-ring i {
+      position:absolute; left:50%; top:10px;
+      height:calc(50% - 10px);
+      transform-origin:bottom center;
+      font-family:var(--f-body); font-style:normal;
+      font-weight:800; font-size:9px; line-height:1;
+      text-transform:uppercase; color:var(--texto);
     }
     @keyframes ringSpin { to { transform:rotate(360deg); } }
     .stick-unesco {
@@ -1161,6 +1167,7 @@
       .hero-grid { padding:120px 0 90px; }
       .stick-star { width:84px; height:84px; top:auto; bottom:16%; right:6%; }
       .stick-star b { font-size:1.5rem; }
+      .stick-ring i { font-size:7px; top:7px; height:calc(50% - 7px); }
       .stick-unesco, .hero-video-tag { display:none; }
       .mani-cols,.jor-grid,.ber-grid,.ing-bottom,.ali-grid,.con-grid,.edu-intro { grid-template-columns:1fr; gap:44px; }
       .mom-hdr { flex-direction:column; align-items:flex-start; }
@@ -1280,10 +1287,7 @@
 
       <span class="hero-video-tag">✦ Nosso espaço visto de cima</span>
       <div class="stick stick-star" aria-label="41 anos de tradição">
-        <svg class="stick-ring" viewBox="0 0 100 100" aria-hidden="true">
-          <defs><path id="ringPath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
-          <text><textPath href="#ringPath" textLength="249" lengthAdjust="spacingAndGlyphs">41 anos de tradição · desde 1984 ·&#160;</textPath></text>
-        </svg>
+        <span class="stick-ring" aria-hidden="true"></span>
         <b>41</b>
       </div>
       <div class="stick stick-unesco">★ Escola Associada UNESCO</div>
@@ -1862,6 +1866,18 @@
   <!-- ═══════════════ JS ═══════════════ -->
   <script>
     'use strict';
+
+    /* monta o anel de texto do selo, letra por letra */
+    (function () {
+      const anel = document.querySelector('.stick-ring');
+      if (!anel) return;
+      const texto = '41 anos de tradição · desde 1984 · ';
+      const passo = 360 / texto.length;
+      anel.innerHTML = [...texto].map((ch, i) =>
+        ch === ' ' ? '' :
+        `<i style="transform:translateX(-50%) rotate(${(i * passo).toFixed(2)}deg)">${ch}</i>`
+      ).join('');
+    })();
 
     /* Preloader */
     window.addEventListener('load', () => {

@@ -184,10 +184,19 @@
       color:var(--amarelo); position:relative; z-index:2;
       top:-.039em; left:.01em;
     }
-    .selo svg { position:absolute; inset:5px; z-index:1; animation:gira 15s linear infinite; }
-    .selo text {
-      font-family:var(--f-body); font-weight:800; font-size:9px;
-      letter-spacing:.1em; text-transform:uppercase; fill:#fff;
+    /* o anel é montado com letras giradas uma a uma: o textPath do SVG
+       embaralha no Safari por causa do textLength */
+    .selo-anel {
+      position:absolute; inset:0; z-index:1;
+      animation:gira 15s linear infinite;
+    }
+    .selo-anel i {
+      position:absolute; left:50%; top:9px;
+      height:calc(50% - 9px);
+      transform-origin:bottom center;
+      font-family:var(--f-body); font-style:normal;
+      font-weight:800; font-size:9px; line-height:1;
+      text-transform:uppercase; color:#fff;
     }
     @keyframes gira { to { transform:rotate(360deg); } }
     @keyframes flutua { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-9px); } }
@@ -195,7 +204,7 @@
     @media (max-width:640px) {
       .selo { width:78px; height:78px; }
       .selo b { font-size:1.5rem; }
-      .selo text { font-size:11px; }
+      .selo-anel i { font-size:7px; top:7px; height:calc(50% - 7px); }
       .marca { margin-bottom:32px; }
       .marca img { width:62px; height:62px; }
       .botoes .btn { width:100%; justify-content:center; }
@@ -232,14 +241,12 @@
     <p class="sobrancelha">vem aí ♡</p>
 
     <h1 data-kinetic>
-      <span class="kin-line">Um site novo</span>
-      <span class="kin-line azul">para a Diko.</span>
+      <span class="kin-line">Estamos trabalhando</span>
+      <span class="kin-line azul">no novo site.</span>
     </h1>
 
     <p class="recado">
-      Estamos preparando um site novo para contar melhor o que acontece aqui dentro.
-      Enquanto ele não fica pronto, fale com a gente: <strong>as matrículas estão abertas</strong>
-      e adoramos receber famílias para conhecer a escola.
+      Enquanto ele não fica pronto, <strong>fale com a gente</strong> e marque sua visita.
     </p>
 
     <div class="botoes">
@@ -262,15 +269,25 @@
   </main>
 
   <div class="selo" aria-label="41 anos de tradição, desde 1984">
-    <svg viewBox="0 0 100 100" aria-hidden="true">
-      <defs><path id="anel" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
-      <text><textPath href="#anel" textLength="249" lengthAdjust="spacingAndGlyphs">41 anos de tradição · desde 1984 ·&#160;</textPath></text>
-    </svg>
+    <span class="selo-anel" aria-hidden="true"></span>
     <b>41</b>
   </div>
 
   <script>
     'use strict';
+
+    /* monta o anel de texto do selo, letra por letra */
+    (function () {
+      const anel = document.querySelector('.selo-anel');
+      if (!anel) return;
+      const texto = '41 anos de tradição · desde 1984 · ';
+      const passo = 360 / texto.length;
+      anel.innerHTML = [...texto].map((ch, i) =>
+        ch === ' ' ? '' :
+        `<i style="transform:translateX(-50%) rotate(${(i * passo).toFixed(2)}deg)">${ch}</i>`
+      ).join('');
+    })();
+
     window.addEventListener('load', function () {
       if (typeof gsap === 'undefined') return;
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
