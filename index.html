@@ -263,6 +263,18 @@
   <script>
     'use strict';
 
+    /* conta os cliques no WhatsApp sem atrasar a ida para a conversa:
+       o aviso é disparado em paralelo e o clique segue normalmente */
+    (function () {
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[href*="wa.me"]');
+        if (!link || !navigator.sendBeacon) return;
+        const onde = link.closest('section') ? link.closest('section').id
+                   : (link.classList.contains('wa-float') ? 'flutuante' : 'pagina');
+        try { navigator.sendBeacon('/whatsapp?de=' + encodeURIComponent(onde)); } catch (_) {}
+      }, { capture: true });
+    })();
+
     /* monta o anel de texto do selo, letra por letra */
     (function () {
       const anel = document.querySelector('.selo-anel');
