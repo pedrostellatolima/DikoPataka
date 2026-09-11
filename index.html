@@ -398,6 +398,9 @@
     .stick-star b {
       font-family:var(--f-disp); font-size:2.6rem; font-weight:900; line-height:1;
       position:relative; z-index:2;
+      /* centragem óptica: os algarismos não preenchem a caixa de texto,
+         sobra folga embaixo, então sobem um pouco para ficarem no meio */
+      top:-.039em; left:.01em;
     }
     .stick-ring {
       position:absolute; inset:4px; z-index:1;
