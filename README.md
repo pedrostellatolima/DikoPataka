@@ -8,7 +8,8 @@ Site institucional da **Diko Pataka**, escola de berçário e educação infanti
 
 | Arquivo | Descrição |
 |---|---|
-| `index.html` | O site inteiro (HTML, CSS e JS em arquivo único) |
+| `index.html` | Página de abertura pública, enquanto o site novo não é aprovado |
+| `novo.html` | O site completo, para aprovação das fundadoras (fora das buscas) |
 | `fotos-site/` | Fotos da escola usadas nas seções |
 | `diko-drone-hero.mp4` | Vídeo aéreo exibido no topo |
 | `FachadaDiko-1.png` | Imagem de espera do vídeo e prévia em redes sociais |
