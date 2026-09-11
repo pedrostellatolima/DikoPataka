@@ -1,0 +1,9 @@
+# Arquivos de texto puro não têm onde declarar a codificação por dentro,
+# como o HTML faz com o meta charset. Sem isto, os acentos aparecem
+# embaralhados para quem lê o arquivo, inclusive robôs de busca e de IA.
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
