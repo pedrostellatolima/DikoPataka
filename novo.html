@@ -562,7 +562,9 @@
       box-shadow:0 30px 80px rgba(4,43,198,.18);
       transform:rotate(-1.5deg);
     }
-    .jor-main img { width:100%; aspect-ratio:4/3; object-fit:cover; }
+    /* a foto histórica é panorâmica; um recorte mais quadrado cortaria
+       crianças das pontas, então a proporção acompanha o original */
+    .jor-main img { width:100%; aspect-ratio:16/10; object-fit:cover; }
     .jor-polaroid {
       position:absolute; right:-24px; bottom:-40px; width:44%;
       background:#fff; padding:10px 10px 34px; border-radius:8px;
@@ -1424,11 +1426,11 @@
         <div class="jor-grid">
           <div class="jor-photo-stack rv-l">
             <figure class="jor-main">
-              <img src="fotos-site/jabuticabeira.jpg" alt="Jabuticabeira carregada de frutas no quintal da Diko Pataka" loading="lazy" />
+              <img src="fotos-site/turma-antiga.jpg" alt="Retrato antigo de uma turma inteira da Diko Pataka reunida no pátio" loading="lazy" />
             </figure>
             <figure class="jor-polaroid">
-              <img src="fotos-site/festa-junina.jpg" alt="Crianças na Festa Junina da Diko Pataka com sanfonas de papelão" loading="lazy" />
-              <figcaption>desde 1983 ♡</figcaption>
+              <img src="fotos-site/fundadoras.jpg" alt="Silvia Stellato e Ângela Hitomi, fundadoras da Diko Pataka" loading="lazy" />
+              <figcaption>Silvia e Ângela ♡</figcaption>
             </figure>
           </div>
 
