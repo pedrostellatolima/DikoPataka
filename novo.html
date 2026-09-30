@@ -857,17 +857,17 @@
 
     /* base: fotos + diferenciais */
     .ing-bottom { display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:center; }
-    .ing-photos { position:relative; }
-    .ing-tall { border-radius:150px 150px var(--r) var(--r); overflow:hidden; }
-    .ing-sq {
-      position:absolute; right:-13%; bottom:-30px; width:54%;
-      border-radius:var(--r); overflow:hidden;
-      border:5px solid var(--azul);
-      box-shadow:0 20px 48px rgba(0,0,0,.3);
-      transform:rotate(3deg);
+    .ing-photos {
+      display:grid; grid-template-columns:1.5fr 1fr;
+      grid-template-rows:1fr 1fr; gap:14px;
     }
-    .ing-tall img { width:100%; aspect-ratio:3/4; object-fit:cover; }
-    .ing-sq img { width:100%; aspect-ratio:4/3; object-fit:cover; }
+    .ing-tall {
+      grid-row:1 / 3;
+      border-radius:150px 150px var(--r) var(--r); overflow:hidden;
+    }
+    .ing-sq { border-radius:var(--r); overflow:hidden; }
+    .ing-tall img { width:100%; height:100%; object-fit:cover; }
+    .ing-sq img { width:100%; aspect-ratio:3/4; object-fit:cover; }
     .ing-photos img { transition:transform .7s var(--ease); }
     .ing-photos > div:hover img { transform:scale(1.05); }
 
@@ -1195,28 +1195,22 @@
       .ing-day { width:64px; height:64px; font-size:.86rem; }
       .ing-days { gap:9px; }
       .ing-bottom { gap:44px; }
-      .ing-photos { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-      .ing-tall { border-radius:120px 120px var(--r) var(--r); }
-      .ing-sq {
-        position:static; width:auto; transform:none;
-        border:none; box-shadow:none; align-self:end;
-      }
-      .ing-tall img, .ing-sq img { aspect-ratio:3/4; }
+      .ing-photos { grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:14px; }
+      .ing-tall { grid-column:1 / 3; grid-row:1; border-radius:120px 120px var(--r) var(--r); }
+      .ing-tall img { aspect-ratio:4/3; height:auto; }
+      .ing-sq img { aspect-ratio:3/4; }
     }
     @media (max-width:560px) {
       .ing-day { width:56px; height:56px; font-size:.78rem; }
       .ing-days { gap:7px; }
-      .ing-photos { grid-template-columns:1fr; }
-      .ing-tall { border-radius:var(--r); }
-      .ing-tall img, .ing-sq img { aspect-ratio:4/3; }
+      /* as três fotos do programa seguem no arranjo de 860px: o arco no topo
+         ocupando a largura toda e as duas menores lado a lado embaixo */
+      .ing-tall { border-radius:var(--r) var(--r) var(--r) var(--r); }
       .pilares,.refs,.dep-cards { grid-template-columns:1fr; }
       .stats { grid-template-columns:1fr 1fr; }
       .stat { padding:30px 16px; }
       .stat:nth-child(odd) { border-right:1px solid rgba(4,43,198,.15); }
       .stat:nth-child(even) { border-right:none; }
-      .ing-photos { grid-template-columns:1fr; }
-      .ing-tall { grid-row:auto; border-radius:var(--r); }
-      .ing-tall img { aspect-ratio:4/3; }
       .form-card { padding:34px 24px; }
       .hero-ctas .btn { width:100%; justify-content:center; }
     }
@@ -1407,8 +1401,9 @@
 
         <div class="ing-bottom">
           <div class="ing-photos rv-l">
-            <div class="ing-tall"><img src="fotos-site/roda-sala.jpg" alt="Roda de música e movimento com as educadoras na sala da Diko Pataka" loading="lazy" /></div>
-            <div class="ing-sq"><img src="fotos-site/mural-conversa.jpg" alt="Crianças conversando em frente ao mural na Diko Pataka" loading="lazy" /></div>
+            <div class="ing-tall"><img src="fotos-site/ingles-roda.jpg" alt="Educador do Skies Learning by Red Balloon em roda com as crianças, todos sentados no chão" loading="lazy" /></div>
+            <div class="ing-sq"><img src="fotos-site/ingles-pintura.jpg" alt="Educadora do Skies Learning by Red Balloon pintando com uma criança" loading="lazy" /></div>
+            <div class="ing-sq"><img src="fotos-site/ingles-quintal.jpg" alt="Educador pintando a mão de uma criança no quintal da Diko Pataka" loading="lazy" /></div>
           </div>
 
           <div class="ing-feats rv-r">
