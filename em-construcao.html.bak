@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escola de Educação Infantil e Berçário no Brooklin – SP | Diko Pataka</title>
+  <meta name="description" content="Escola de educação infantil e berçário no Brooklin, SP, há 43 anos. Matrículas abertas. Fale com a gente pelo WhatsApp (11) 97471-7114." />
+  <meta name="keywords" content="escola infantil brooklin, berçário brooklin sp, educação infantil são paulo, diko pataka, escola brooklin" />
+  <link rel="canonical" href="https://dikopataka.com.br/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <meta name="geo.region" content="BR-SP" />
+  <meta name="geo.placename" content="Brooklin, São Paulo" />
+  <meta name="geo.position" content="-23.6139;-46.6968" />
+  <meta name="ICBM" content="-23.6139, -46.6968" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Diko Pataka" />
+  <meta property="og:title" content="Diko Pataka · Lugar de criança feliz" />
+  <meta property="og:description" content="Berçário e educação infantil no Brooklin há 43 anos. Estamos preparando um site novo. Matrículas abertas." />
+  <meta property="og:url" content="https://dikopataka.com.br/" />
+  <meta property="og:image" content="https://dikopataka.com.br/og-diko.jpg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="420" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Preschool", "ChildCare"],
+    "name": "Diko Pataka",
+    "alternateName": "Diko Pataka Berçário e Educação Infantil",
+    "slogan": "Lugar de criança feliz",
+    "description": "Escola de educação infantil e berçário no Brooklin, São Paulo, há 43 anos. Atende crianças de 4 meses a 6 anos, com programa bilíngue Skies Learning by Red Balloon todos os dias e 2.000 m² de espaço.",
+    "url": "https://dikopataka.com.br",
+    "telephone": "+55-11-97471-7114",
+    "email": "dikopataka@uol.com.br",
+    "foundingDate": "1983",
+    "logo": "https://dikopataka.com.br/logo-redondo.png",
+    "image": "https://dikopataka.com.br/og-diko.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Indiana, 276",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "04562-000",
+      "addressCountry": "BR"
+    },
+    "areaServed": ["Brooklin", "Campo Belo", "Itaim Bibi", "Moema", "Vila Olímpia", "São Paulo"],
+    "geo": { "@type": "GeoCoordinates", "latitude": -23.6139, "longitude": -46.6968 },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua+Indiana+276+Brooklin+S%C3%A3o+Paulo",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "07:00", "closes": "19:00"
+    }],
+    "priceRange": "$$",
+    "sameAs": ["https://www.instagram.com/dikopataka"]
+  }
+  </script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <link rel="icon" type="image/png" href="logo-redondo.png" />
+  <link rel="apple-touch-icon" href="logo-redondo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&family=Caveat:wght@500;600;700&family=Archivo:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --azul:       #042bc6;
+      --azul-medio: #1a3fd4;
+      --amarelo:    #ffc60d;
+      --texto:      #080d2e;
+      --f-body: 'DM Sans', system-ui, sans-serif;
+      --f-disp: 'Archivo', 'DM Sans', sans-serif;
+      --f-hand: 'Caveat', cursive;
+      --ease: cubic-bezier(.25,.46,.45,.94);
+    }
+
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { -webkit-text-size-adjust:100%; }
+    body {
+      font-family:var(--f-body);
+      background:var(--amarelo); color:var(--texto);
+      min-height:100svh; overflow-x:hidden;
+      display:flex; align-items:center; justify-content:center;
+      padding:48px 24px;
+      -webkit-font-smoothing:antialiased;
+    }
+    a { color:inherit; text-decoration:none; }
+    ::selection { background:var(--azul); color:#fff; }
+
+    /* estrelas decorativas ao fundo */
+    .estrela {
+      position:fixed; color:var(--texto); opacity:.07;
+      pointer-events:none; user-select:none; line-height:1;
+      font-size:clamp(9rem,22vw,20rem);
+    }
+    .e1 { top:-4vh;    left:-3vw;  transform:rotate(-18deg); }
+    .e2 { bottom:-6vh; right:-3vw; transform:rotate(14deg); }
+    .e3 { top:42%; right:8%; font-size:clamp(3rem,6vw,6rem); opacity:.05; transform:rotate(9deg); }
+
+    .w { position:relative; z-index:2; width:100%; max-width:760px; text-align:center; }
+
+    .marca {
+      width:clamp(230px,32vw,380px); height:auto;
+      margin:0 auto 40px; display:block;
+      transition:transform .5s var(--ease);
+    }
+    .marca:hover { transform:rotate(-2deg) scale(1.03); }
+
+    .sobrancelha {
+      font-family:var(--f-hand); font-weight:600;
+      font-size:clamp(1.3rem,3vw,1.7rem); color:var(--azul);
+      display:block; margin-bottom:10px; transform:rotate(-1.5deg);
+    }
+
+    h1 {
+      font-family:var(--f-disp); font-weight:900;
+      font-size:clamp(2.2rem,6.4vw,4.4rem);
+      line-height:1.02; letter-spacing:-.035em;
+      margin-bottom:26px;
+    }
+    h1 .azul { color:var(--azul); }
+    /* letras fatiadas para o efeito de mola */
+    .kin-word { display:inline-block; white-space:nowrap; }
+    .kin-letter { display:inline-block; will-change:transform; font-kerning:none; }
+
+    .recado {
+      font-size:clamp(1rem,2.2vw,1.12rem); line-height:1.75;
+      max-width:520px; margin:0 auto 38px;
+      color:rgba(8,13,46,.78);
+    }
+    .recado strong { font-weight:700; color:var(--texto); }
+    /* a frase inteira desce junta em vez de deixar "visita" sozinha embaixo */
+    .junto { white-space:nowrap; }
+
+    .botoes { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:52px; }
+    .btn {
+      display:inline-flex; align-items:center; gap:9px;
+      padding:16px 32px; border-radius:100px;
+      font-size:.92rem; font-weight:700; letter-spacing:.02em;
+      transition:transform .28s var(--ease), box-shadow .28s var(--ease), background .28s;
+    }
+    .btn svg { width:18px; height:18px; fill:currentColor; }
+    .btn-azul { background:var(--azul); color:#fff; }
+    .btn-azul:hover { background:var(--azul-medio); transform:translateY(-3px); box-shadow:0 14px 34px rgba(4,43,198,.34); }
+    .btn-linha {
+      background:transparent; color:var(--texto);
+      box-shadow:inset 0 0 0 2px rgba(8,13,46,.22);
+    }
+    .btn-linha:hover { box-shadow:inset 0 0 0 2px var(--texto); transform:translateY(-3px); }
+
+    .pe {
+      border-top:1.5px solid rgba(8,13,46,.16);
+      padding-top:28px;
+      display:flex; flex-wrap:wrap; justify-content:center;
+      gap:10px 30px;
+      font-size:.88rem; color:rgba(8,13,46,.66);
+    }
+    .pe b { font-weight:700; color:var(--texto); }
+    .pe span { display:inline-flex; align-items:center; gap:7px; }
+
+    /* selo giratório dos 43 anos */
+    .selo {
+      position:fixed; right:clamp(16px,4vw,48px); bottom:clamp(16px,4vw,48px);
+      width:104px; height:104px; z-index:3;
+      background:var(--azul); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 14px 38px rgba(4,43,198,.3);
+      animation:flutua 4.5s ease-in-out infinite;
+    }
+    .selo b {
+      font-family:var(--f-disp); font-weight:900; font-size:2.1rem;
+      color:var(--amarelo); position:relative; z-index:2;
+      top:-.039em; left:.01em;
+    }
+    /* o anel é montado com letras giradas uma a uma: o textPath do SVG
+       embaralha no Safari por causa do textLength */
+    .selo-anel {
+      position:absolute; inset:0; z-index:1;
+      animation:gira 15s linear infinite;
+    }
+    .selo-anel i {
+      position:absolute; left:50%; top:9px;
+      height:calc(50% - 9px);
+      transform-origin:bottom center;
+      font-family:var(--f-body); font-style:normal;
+      font-weight:800; font-size:9px; line-height:1;
+      text-transform:uppercase; color:#fff;
+    }
+    @keyframes gira { to { transform:rotate(360deg); } }
+    @keyframes flutua { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-9px); } }
+
+    @media (max-width:640px) {
+      .selo { width:78px; height:78px; }
+      .selo b { font-size:1.5rem; }
+      .selo-anel i { font-size:7px; top:7px; height:calc(50% - 7px); }
+      .marca { width:min(78vw,260px); margin-bottom:30px; }
+      .botoes .btn { width:100%; justify-content:center; }
+      .pe { gap:8px 18px; font-size:.82rem; }
+      body { padding:40px 20px 130px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline:3px solid var(--azul); outline-offset:4px; border-radius:6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <span class="estrela e1" aria-hidden="true">★</span>
+  <span class="estrela e2" aria-hidden="true">★</span>
+  <span class="estrela e3" aria-hidden="true">★</span>
+
+  <main class="w">
+
+    <img class="marca" src="logo-diko.png"
+         alt="Diko Pataka — berçário e educação infantil no Brooklin" />
+
+    <p class="sobrancelha">vem aí ♡</p>
+
+    <h1 data-kinetic>
+      <span class="kin-line">Estamos trabalhando</span>
+      <span class="kin-line azul">no novo site.</span>
+    </h1>
+
+    <p class="recado">
+      Enquanto ele não fica pronto, <strong>fale com a gente</strong>
+      <span class="junto">e marque sua visita.</span>
+    </p>
+
+    <div class="botoes">
+      <a class="btn btn-azul" href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a class="btn btn-linha" href="https://instagram.com/dikopataka" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+    </div>
+
+    <div class="pe">
+      <span>📍 <b>Rua Indiana, 276</b> · Brooklin, São Paulo</span>
+      <span>📱 <b>(11) 97471-7114</b></span>
+      <span>🕐 Seg a Sex, <b>07h às 19h</b></span>
+    </div>
+
+  </main>
+
+  <div class="selo" aria-label="43 anos de tradição, desde 1983">
+    <span class="selo-anel" aria-hidden="true"></span>
+    <b>43</b>
+  </div>
+
+  <script>
+    'use strict';
+
+    /* conta os cliques no WhatsApp sem atrasar a ida para a conversa:
+       o aviso é disparado em paralelo e o clique segue normalmente */
+    (function () {
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[href*="wa.me"]');
+        if (!link || !navigator.sendBeacon) return;
+        const onde = link.closest('section') ? link.closest('section').id
+                   : (link.classList.contains('wa-float') ? 'flutuante' : 'pagina');
+        try { navigator.sendBeacon('/whatsapp?de=' + encodeURIComponent(onde)); } catch (_) {}
+      }, { capture: true });
+    })();
+
+    /* monta o anel de texto do selo, letra por letra */
+    (function () {
+      const anel = document.querySelector('.selo-anel');
+      if (!anel) return;
+      const texto = '43 anos de tradição · desde 1983 · ';
+      const passo = 360 / texto.length;
+      anel.innerHTML = [...texto].map((ch, i) =>
+        ch === ' ' ? '' :
+        `<i style="transform:translateX(-50%) rotate(${(i * passo).toFixed(2)}deg)">${ch}</i>`
+      ).join('');
+    })();
+
+    window.addEventListener('load', function () {
+      if (typeof gsap === 'undefined') return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      /* fatia o título em letras, preservando as palavras */
+      const titulo = document.querySelector('[data-kinetic]');
+      const letras = [];
+      titulo.querySelectorAll('.kin-line').forEach(linha => {
+        const frag = document.createDocumentFragment();
+        linha.textContent.split(' ').forEach((palavra, i, todas) => {
+          if (palavra) {
+            const w = document.createElement('span');
+            w.className = 'kin-word';
+            [...palavra].forEach(ch => {
+              const s = document.createElement('span');
+              s.className = 'kin-letter';
+              s.textContent = ch;
+              letras.push(s);
+              w.appendChild(s);
+            });
+            frag.appendChild(w);
+          }
+          if (i < todas.length - 1) frag.appendChild(document.createTextNode(' '));
+        });
+        linha.innerHTML = '';
+        linha.appendChild(frag);
+      });
+
+      /* entrada: as letras sobem em onda, sempre visíveis */
+      gsap.from(letras, {
+        yPercent: 110,
+        rotation: () => gsap.utils.random(-8, 8),
+        duration: .85, ease: 'back.out(1.7)',
+        stagger: { each: .028 }, delay: .15,
+        onComplete() { gsap.set(letras, { clearProps: 'all' }); }
+      });
+
+      /* mola ao passar o mouse, empurrando as vizinhas */
+      letras.forEach(letra => {
+        letra.addEventListener('pointerenter', () => {
+          const irmas = [...letra.parentNode.children];
+          const i = irmas.indexOf(letra);
+          const giro = gsap.utils.random(-14, 14);
+          const pula = (el, dy, r, s) => {
+            gsap.killTweensOf(el);
+            gsap.timeline()
+              .to(el, { y: dy, rotation: r, scale: s, duration: .16, ease: 'power2.out' })
+              .to(el, { y: 0, rotation: 0, scale: 1, duration: 1.1, ease: 'elastic.out(1.1,0.32)' });
+          };
+          pula(letra, -14, giro, 1.12);
+          if (irmas[i - 1]) pula(irmas[i - 1], -6, giro * -.4, 1.04);
+          if (irmas[i + 1]) pula(irmas[i + 1], -6, giro * -.4, 1.04);
+        });
+      });
+
+      /* botões magnéticos */
+      if (matchMedia('(pointer:fine)').matches) {
+        document.querySelectorAll('.btn').forEach(btn => {
+          const xTo = gsap.quickTo(btn, 'x', { duration: .35, ease: 'power3.out' });
+          const yTo = gsap.quickTo(btn, 'y', { duration: .35, ease: 'power3.out' });
+          btn.addEventListener('pointermove', e => {
+            const r = btn.getBoundingClientRect();
+            xTo((e.clientX - r.left - r.width / 2) * .25);
+            yTo((e.clientY - r.top - r.height / 2) * .3);
+          });
+          btn.addEventListener('pointerleave', () => {
+            gsap.to(btn, { x: 0, y: 0, duration: .7, ease: 'elastic.out(1,0.35)' });
+          });
+        });
+      }
+
+      /* rede de segurança: nenhuma letra pode ficar presa fora do lugar */
+      setTimeout(() => {
+        letras.forEach(l => {
+          const t = getComputedStyle(l).transform;
+          if (t !== 'none') { gsap.killTweensOf(l); gsap.set(l, { clearProps: 'all' }); }
+        });
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

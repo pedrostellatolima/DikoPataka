@@ -3,16 +3,36 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dikopataka.com.br/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://dikopataka.com.br/FachadaDiko-1.png</image:loc>
-      <image:title>Fachada da Diko Pataka — escola de educação infantil no Brooklin, São Paulo</image:title>
+      <image:loc>https://dikopataka.com.br/og-diko.jpg</image:loc>
+      <image:title>Diko Pataka — berçário e educação infantil no Brooklin, São Paulo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://dikopataka.com.br/logo-redondo.png</image:loc>
       <image:title>Logo Diko Pataka — Berçário e Educação Infantil</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dikopataka.com.br/fotos-site/fundadoras.jpg</image:loc>
+      <image:title>Angela Vitorio e Silvia Stellato, fundadoras da Diko Pataka</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dikopataka.com.br/fotos-site/quadra-ombros.jpg</image:loc>
+      <image:title>Crianças brincando nos 2.000 m² de quintal da Diko Pataka</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dikopataka.com.br/fotos-site/ingles-roda.jpg</image:loc>
+      <image:title>Aula de inglês Skies Learning by Red Balloon na Diko Pataka</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dikopataka.com.br/fotos-site/cozinha-chef.jpg</image:loc>
+      <image:title>Cozinha própria da Diko Pataka, com chef preparando o almoço</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dikopataka.com.br/fotos-site/bercario-bebes.jpg</image:loc>
+      <image:title>Unidade Baby da Diko Pataka — berçário a partir de 4 meses</image:title>
     </image:image>
   </url>
 </urlset>

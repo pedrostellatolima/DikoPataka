@@ -1,0 +1,4 @@
+# O site completo saiu de /novo e virou a home.
+# Quem tiver o link antigo salvo cai na home em vez de um 404.
+/novo       /  301
+/novo.html  /  301

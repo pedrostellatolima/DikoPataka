@@ -3,3 +3,5 @@ wrangler.jsonc
 .assetsignore
 .gitignore
 _headers
+em-construcao.html.bak
+_redirects
