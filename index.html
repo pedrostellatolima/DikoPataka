@@ -1286,9 +1286,12 @@
     <!-- ═══════════════ HERO ═══════════════ -->
     <section id="hero" aria-label="Bem-vindo à Diko Pataka">
       <div class="hero-bg" aria-hidden="true">
-        <video autoplay muted loop playsinline poster="hero-poster.jpg"
+        <!-- O src entra por JS, e só onde o vídeo compensa. No celular fica o
+             poster: são 98 KB em vez de 13 MB, e como o poster é o primeiro
+             quadro em 720p, ele aparece mais nítido que o vídeo ampliado. -->
+        <video muted loop playsinline preload="none" poster="hero-poster.jpg"
+          data-src="diko-drone-hero.mp4"
           aria-label="Vídeo aéreo de drone mostrando os 2.000 metros quadrados da Diko Pataka">
-          <source src="diko-drone-hero.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -2002,12 +2005,35 @@
       });
     });
 
-    /* Video: pause quando fora da tela (economia) */
+    /* Vídeo do hero: 13 MB só fazem sentido em tela grande e rede folgada.
+       Fora disso o poster segura o hero sozinho — e carrega na hora.
+       Mesmo no desktop o carregamento espera o load, para nunca disputar
+       banda com o que a pessoa precisa ver primeiro. */
     const heroVid = document.querySelector('#hero video');
     if (heroVid) {
-      new IntersectionObserver(es => {
-        es.forEach(e => e.isIntersecting ? heroVid.play().catch(()=>{}) : heroVid.pause());
-      }, { threshold:.1 }).observe(heroVid);
+      const rede  = navigator.connection || {};
+      const vale  = matchMedia('(min-width:861px)').matches
+                 && !matchMedia('(prefers-reduced-motion:reduce)').matches
+                 && rede.saveData !== true
+                 /* só 2g e slow-2g: o palpite do navegador diz "3g" com
+                    frequência mesmo em banda larga, e barrar nisso tiraria
+                    o vídeo de muita gente sem necessidade */
+                 && !/(^|-)2g$/.test(rede.effectiveType || '');
+
+      if (vale) {
+        const carregar = () => {
+          heroVid.src = heroVid.dataset.src;
+          heroVid.load();
+          heroVid.play().catch(() => {});
+          /* pausa fora da tela, para não gastar bateria à toa */
+          new IntersectionObserver(es => {
+            es.forEach(e => e.isIntersecting ? heroVid.play().catch(() => {}) : heroVid.pause());
+          }, { threshold:.1 }).observe(heroVid);
+        };
+        document.readyState === 'complete'
+          ? carregar()
+          : addEventListener('load', carregar, { once:true });
+      }
     }
 
     /* ═══ KINETIC ENGINE (GSAP) ═══ */
