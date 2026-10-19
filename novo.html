@@ -659,12 +659,10 @@
     .mom-track { align-items:center; }
     .mom-panel:nth-child(even) { margin-top:72px; }
     .mom-panel:nth-child(3n) { margin-bottom:56px; }
-    .ali-mosaic > div:nth-child(2) { margin-top:36px; }
 
     @media (max-width:860px) {
       .mom-panel:nth-child(even) { margin-top:0; }
       .mom-panel:nth-child(3n) { margin-bottom:0; }
-      .ali-mosaic > div:nth-child(2) { margin-top:0; }
       .mom-hwrap { overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
       .mom-hwrap::-webkit-scrollbar { display:none; }
       .mom-panel { scroll-snap-align:start; }
@@ -898,13 +896,24 @@
        ALIMENTAÇÃO
     ═══════════════════════════════════════════════ */
     #alimentacao { background:var(--branco); padding:120px 0; }
-    .ali-grid { display:grid; grid-template-columns:1fr 1fr; gap:76px; align-items:center; }
-    .ali-mosaic { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
-    .ali-mosaic > div { border-radius:var(--r); overflow:hidden; }
-    .ali-mosaic > div:nth-child(1) { border-radius:120px 120px var(--r) var(--r); grid-row:span 2; }
-    .ali-mosaic > div:nth-child(1) img { height:100%; }
-    .ali-mosaic img { width:100%; aspect-ratio:1; object-fit:cover; transition:transform .7s var(--ease); }
-    .ali-mosaic > div:hover img { transform:scale(1.06); }
+    .ali-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:76px; align-items:center; }
+    /* foto única: painel ciano deslocado atrás dá peso e cor à seção */
+    .ali-photo { position:relative; }
+    .ali-photo::before {
+      content:''; position:absolute; inset:26px -22px -26px 22px;
+      background:var(--azul-claro); border-radius:var(--r-lg);
+      transform:rotate(2deg);
+    }
+    .ali-photo figure {
+      position:relative; border-radius:var(--r-lg); overflow:hidden;
+      border:6px solid var(--branco);
+      box-shadow:0 26px 64px rgba(4,43,198,.16);
+    }
+    .ali-photo img {
+      display:block; width:100%; aspect-ratio:4/5; object-fit:cover;
+      transition:transform .7s var(--ease);
+    }
+    .ali-photo figure:hover img { transform:scale(1.05); }
     .ali-text > p { font-size:1.02rem; line-height:1.85; color:var(--texto-meio); margin-bottom:16px; }
     .ali-note {
       margin-top:28px; background:var(--creme); border:2px dashed var(--amarelo);
@@ -1657,10 +1666,10 @@
     <section id="alimentacao" aria-labelledby="ali-h">
       <div class="w">
         <div class="ali-grid">
-          <div class="ali-mosaic rv-l">
-            <div><img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=700&q=80" alt="Frutas e alimentos frescos e coloridos" loading="lazy" /></div>
-            <div><img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=500&q=80" alt="Criança participando de culinária" loading="lazy" /></div>
-            <div><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80" alt="Ingredientes frescos da cozinha própria" loading="lazy" /></div>
+          <div class="ali-photo rv-l">
+            <figure>
+              <img src="fotos-site/cozinha-chef.jpg" alt="Chef da cozinha própria servindo o almoço enquanto as crianças de touca acompanham o preparo" loading="lazy" />
+            </figure>
           </div>
 
           <div class="ali-text rv-r">
@@ -2289,7 +2298,7 @@
       });
 
       /* ── FOTOS: entram uma a uma, desencontradas ── */
-      ['.jor-photo-stack', '.ber-photos', '.ing-photos', '.ali-mosaic', '.educacao-hero .ed-img-wrap'].forEach(sel => {
+      ['.jor-photo-stack', '.ber-photos', '.ing-photos', '.educacao-hero .ed-img-wrap'].forEach(sel => {
         const g = document.querySelector(sel);
         if (!g) return;
         ['rv','rv-l','rv-r','rv-sc'].forEach(c => g.classList.remove(c));
@@ -2306,7 +2315,7 @@
       /* deriva no scroll: cada foto numa velocidade (imagem dentro da moldura) */
       if (typeof ScrollTrigger !== 'undefined' && innerWidth > 860) {
         gsap.utils.toArray(
-          '.jor-main img, .ber-arch img, .ing-tall img, .ing-sq img, .ali-mosaic > div img, .ed-img-main img'
+          '.jor-main img, .ber-arch img, .ing-tall img, .ing-sq img, .ali-photo img, .ed-img-main img'
         ).forEach((img, i) => {
           const amp = 16 + (i % 3) * 10;
           gsap.fromTo(img,
