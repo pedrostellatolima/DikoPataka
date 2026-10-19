@@ -1195,6 +1195,19 @@
       .stat:nth-child(1),.stat:nth-child(2) { border-bottom:1px solid rgba(4,43,198,.15); }
     }
     @media (max-width:860px) {
+      /* As entradas laterais deslocam os blocos 48px para fora da tela antes
+         de aparecer, o que estica a página e deixa uma faixa branca na borda
+         (o overflow-x do body não recorta isso de forma confiável no Safari
+         do iPhone). Em tela estreita 48px também é um salto grande demais:
+         aqui a entrada é vertical, como a das outras seções. */
+      .rv-l, .rv-r { transform:translateY(30px); }
+      .rv-l.in, .rv-r.in { transform:none; }
+
+      /* Estes dois vazam da moldura de propósito, o que fica bem no desktop.
+         Em tela estreita a sobra passava da borda e esticava a página junto. */
+      .ber-float { right:-6px; }
+      .ali-photo::before { inset:20px -6px -20px 16px; }
+
       .nav-links { display:none; }
       .burger { display:flex; }
       .hero-grid { padding:120px 0 90px; }
