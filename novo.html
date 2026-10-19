@@ -1121,11 +1121,26 @@
       transition:all .3s var(--ease); margin-top:6px;
     }
     .form-submit:hover { background:var(--azul-medio); transform:translateY(-2px); box-shadow:0 14px 36px rgba(4,43,198,.45); }
+    .form-submit[disabled] { opacity:.6; cursor:wait; transform:none; box-shadow:none; }
+    .hp { position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+    .form-erro {
+      display:none; margin-top:14px; padding:12px 16px;
+      background:#fff4ec; border:1px solid var(--laranja); border-radius:var(--r);
+      font-size:.88rem; line-height:1.55; color:var(--texto);
+    }
+    .form-erro.show { display:block; }
+    .form-erro a { color:var(--azul); font-weight:700; }
     .form-ok { display:none; text-align:center; padding:36px 12px; }
     .form-ok.show { display:block; }
     .form-ok .big { font-size:3.4rem; margin-bottom:12px; }
     .form-ok h3 { margin-bottom:8px; }
     .form-ok p { font-size:.92rem; color:var(--texto-meio); }
+    .form-wa {
+      display:inline-block; margin-top:22px; padding:13px 26px; border-radius:100px;
+      background:#25d366; color:#fff; font-weight:800; font-size:.86rem;
+      letter-spacing:.03em; transition:all .3s var(--ease);
+    }
+    .form-wa:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(37,211,102,.4); }
 
     /* ═══════════════════════════════════════════════
        FOOTER
@@ -1281,7 +1296,7 @@
     <!-- ═══════════════ HERO ═══════════════ -->
     <section id="hero" aria-label="Bem-vindo à Diko Pataka">
       <div class="hero-bg" aria-hidden="true">
-        <video autoplay muted loop playsinline poster="fachada-poster.jpg"
+        <video autoplay muted loop playsinline poster="hero-poster.jpg"
           aria-label="Vídeo aéreo de drone mostrando os 2.000 metros quadrados da Diko Pataka">
           <source src="diko-drone-hero.mp4" type="video/mp4" />
         </video>
@@ -1536,7 +1551,7 @@
               <p>Espaços que provocam, inspiram e transformam. A curiosidade toma conta.</p></div>
             </li>
             <li class="dia-m" data-h="12">
-              <img class="dia-foto" src="fotos-site/dia-almoco.jpg" alt="Criança ralando cenoura na atividade de culinária" loading="lazy" />
+              <img class="dia-foto" src="fotos-site/dia-almoco-chef.jpg" alt="Chef servindo o almoço na cozinha da escola com as crianças em volta" loading="lazy" />
               <div class="dia-txt">
               <b>12h00 · Almoço</b>
               <p>Comida de verdade da nossa cozinha, feita por quem conhece cada criança.</p></div>
@@ -1759,7 +1774,7 @@
           </details>
           <details class="faq-item">
             <summary>Como agendar uma visita à escola?</summary>
-            <p>É só chamar no <a href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer" style="color:var(--azul);font-weight:700;">WhatsApp (11) 97471-7114</a>, enviar e-mail para dikopataka@uol.com.br ou preencher o <a href="#contato" style="color:var(--azul);font-weight:700;">formulário de contato</a>. Adoramos receber famílias.</p>
+            <p>É só chamar no <a href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer" style="color:var(--azul);font-weight:700;">WhatsApp (11) 97471-7114</a>, enviar e-mail para <a href="mailto:dikopataka@uol.com.br" style="color:var(--azul);font-weight:700;">dikopataka@uol.com.br</a> ou preencher o <a href="#contato" style="color:var(--azul);font-weight:700;">formulário de contato</a>. Adoramos receber famílias.</p>
           </details>
         </div>
 
@@ -1828,12 +1843,18 @@
               <div class="fg"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" /></div>
               <div class="fg"><label for="telefone">Telefone / WhatsApp</label><input type="tel" id="telefone" name="telefone" placeholder="(11) 9 0000-0000" autocomplete="tel" /></div>
               <div class="fg"><label for="mensagem">Mensagem (opcional)</label><textarea id="mensagem" name="mensagem" placeholder="Conte sobre a criança e o que gostaria de saber…"></textarea></div>
-              <button type="submit" class="form-submit">Enviar mensagem →</button>
+              <!-- isca anti-spam: invisível para gente, preenchida por robô -->
+              <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <button type="submit" class="form-submit" id="formBtn">Enviar mensagem →</button>
+              <p class="form-erro" id="formErro" role="alert"></p>
             </form>
             <div class="form-ok" id="formOk" role="alert">
               <div class="big">🎉</div>
               <h3>Mensagem enviada!</h3>
-              <p>Entraremos em contato em breve. Até logo!</p>
+              <p>Recebemos seu contato e retornamos em breve.</p>
+              <a class="form-wa" id="formWa" href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer">
+                Prefere falar agora? Chamar no WhatsApp →
+              </a>
             </div>
           </div>
         </div>
@@ -2015,23 +2036,67 @@
                   `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
     });
 
-    /* Form → WhatsApp */
-    document.getElementById('contactForm')?.addEventListener('submit', e => {
+    /* Formulário: envia e-mail de verdade; WhatsApp fica como atalho opcional.
+       Só mostra "enviada" depois que o envio confirma. */
+    const ENDPOINT = 'https://formsubmit.co/ajax/dikopataka@uol.com.br';
+
+    document.getElementById('contactForm')?.addEventListener('submit', async e => {
       e.preventDefault();
-      const nome = document.getElementById('nome').value.trim();
+      const form  = e.currentTarget;
+      const btn   = document.getElementById('formBtn');
+      const erro  = document.getElementById('formErro');
+      const nome  = document.getElementById('nome').value.trim();
       const email = document.getElementById('email').value.trim();
-      if (!nome || !email) {
-        const el = !nome ? document.getElementById('nome') : document.getElementById('email');
+
+      const invalido = !nome ? 'nome'
+                     : !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'email'
+                     : null;
+      if (invalido) {
+        const el = document.getElementById(invalido);
         el.focus(); el.style.borderColor = 'var(--laranja)';
         setTimeout(() => el.style.borderColor = '', 2000);
         return;
       }
+
       const fone = document.getElementById('telefone').value.trim();
       const msg  = document.getElementById('mensagem').value.trim();
-      const txt  = encodeURIComponent(`Olá! Me chamo ${nome}.\nE-mail: ${email}${fone?'\nTelefone: '+fone:''}${msg?'\n\n'+msg:''}`);
-      open(`https://wa.me/5511974717114?text=${txt}`, '_blank', 'noopener,noreferrer');
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formOk').classList.add('show');
+
+      /* link de WhatsApp já com a mensagem pronta, para o botão do sucesso */
+      const txt = encodeURIComponent(
+        `Olá! Me chamo ${nome}.\nE-mail: ${email}${fone ? '\nTelefone: ' + fone : ''}${msg ? '\n\n' + msg : ''}`
+      );
+      document.getElementById('formWa').href = `https://wa.me/5511974717114?text=${txt}`;
+
+      erro.classList.remove('show');
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+
+      try {
+        const r = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            nome, email,
+            telefone: fone || '(não informado)',
+            mensagem: msg || '(sem mensagem)',
+            _subject: `Site Diko Pataka — contato de ${nome}`,
+            _template: 'table',
+            _honey: form._honey.value
+          })
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+
+        form.style.display = 'none';
+        document.getElementById('formOk').classList.add('show');
+      } catch (_) {
+        /* não dizemos que enviou se não enviou: oferecemos os outros caminhos */
+        erro.innerHTML = 'Não conseguimos enviar agora. Chame no '
+          + '<a href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer">WhatsApp (11) 97471-7114</a>'
+          + ' ou escreva para <a href="mailto:dikopataka@uol.com.br">dikopataka@uol.com.br</a>.';
+        erro.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Tentar novamente →';
+      }
     });
 
     /* Video: pause quando fora da tela (economia) */
