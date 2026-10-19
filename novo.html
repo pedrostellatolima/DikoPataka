@@ -144,7 +144,7 @@
           {
             "@type": "Question",
             "name": "Como agendar uma visita à escola?",
-            "acceptedAnswer": { "@type": "Answer", "text": "É só chamar no WhatsApp (11) 97471-7114, enviar e-mail para dikopataka@uol.com.br ou preencher o formulário no site. Adoramos receber famílias." }
+            "acceptedAnswer": { "@type": "Answer", "text": "É só chamar no WhatsApp (11) 97471-7114, enviar e-mail para dikopataka@uol.com.br ou falar com a gente pelo Instagram @dikopataka. Adoramos receber famílias." }
           }
         ]
       }
@@ -1104,43 +1104,34 @@
     }
     .form-card h3 { font-family:var(--f-disp); font-weight:900; font-size:1.65rem; letter-spacing:-.02em; color:var(--texto); margin-bottom:6px; }
     .form-card > p { font-size:.88rem; color:var(--texto-meio); margin-bottom:30px; }
-    .fg { margin-bottom:18px; }
-    .fg label { display:block; font-size:.68rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--texto-meio); margin-bottom:8px; }
-    .fg input,.fg textarea {
-      width:100%; padding:15px 18px;
-      background:var(--off); border:2px solid transparent; border-radius:14px;
-      font-family:var(--f-body); font-size:.95rem; color:var(--texto); outline:none;
-      transition:border-color .3s, background .3s;
+
+    /* cartão de contato: um caminho só, direto pro WhatsApp */
+    .wa-card { text-align:center; }
+    .wa-card h3 { font-size:1.9rem; line-height:1.2; margin-bottom:12px; }
+    .wa-card > p { line-height:1.7; margin-bottom:28px; }
+    .wa-cta {
+      display:flex; align-items:center; justify-content:center; gap:12px;
+      width:100%; padding:21px 24px; border-radius:100px;
+      background:#25d366; color:#fff;
+      font-family:var(--f-body); font-size:1.02rem; font-weight:800; letter-spacing:.02em;
+      box-shadow:0 16px 38px rgba(37,211,102,.38);
+      transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s;
     }
-    .fg input:focus,.fg textarea:focus { border-color:var(--azul); background:#fff; }
-    .fg textarea { resize:vertical; min-height:96px; }
-    .form-submit {
-      width:100%; padding:17px; border:none; border-radius:100px; cursor:pointer;
-      background:var(--azul); color:#fff;
-      font-family:var(--f-body); font-size:.9rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
-      transition:all .3s var(--ease); margin-top:6px;
+    .wa-cta svg { width:24px; height:24px; fill:#fff; flex-shrink:0; }
+    .wa-cta:hover { background:#1fbe5a; transform:translateY(-3px); box-shadow:0 22px 50px rgba(37,211,102,.5); }
+    .wa-cta:active { transform:translateY(-1px); }
+    .wa-num {
+      display:block; margin-top:22px;
+      font-family:var(--f-disp); font-weight:900; font-size:1.5rem;
+      letter-spacing:-.01em; color:var(--azul);
     }
-    .form-submit:hover { background:var(--azul-medio); transform:translateY(-2px); box-shadow:0 14px 36px rgba(4,43,198,.45); }
-    .form-submit[disabled] { opacity:.6; cursor:wait; transform:none; box-shadow:none; }
-    .hp { position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
-    .form-erro {
-      display:none; margin-top:14px; padding:12px 16px;
-      background:#fff4ec; border:1px solid var(--laranja); border-radius:var(--r);
-      font-size:.88rem; line-height:1.55; color:var(--texto);
+    .wa-hr { display:block; margin-top:4px; font-size:.84rem; color:var(--texto-meio); }
+    .wa-alt {
+      margin-top:26px; padding-top:22px; border-top:1px solid rgba(0,0,0,.08);
+      font-size:.86rem; color:var(--texto-meio);
     }
-    .form-erro.show { display:block; }
-    .form-erro a { color:var(--azul); font-weight:700; }
-    .form-ok { display:none; text-align:center; padding:36px 12px; }
-    .form-ok.show { display:block; }
-    .form-ok .big { font-size:3.4rem; margin-bottom:12px; }
-    .form-ok h3 { margin-bottom:8px; }
-    .form-ok p { font-size:.92rem; color:var(--texto-meio); }
-    .form-wa {
-      display:inline-block; margin-top:22px; padding:13px 26px; border-radius:100px;
-      background:#25d366; color:#fff; font-weight:800; font-size:.86rem;
-      letter-spacing:.03em; transition:all .3s var(--ease);
-    }
-    .form-wa:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(37,211,102,.4); }
+    .wa-alt a { color:var(--azul); font-weight:700; }
+    .wa-alt a:hover { text-decoration:underline; }
 
     /* ═══════════════════════════════════════════════
        FOOTER
@@ -1774,7 +1765,7 @@
           </details>
           <details class="faq-item">
             <summary>Como agendar uma visita à escola?</summary>
-            <p>É só chamar no <a href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer" style="color:var(--azul);font-weight:700;">WhatsApp (11) 97471-7114</a>, enviar e-mail para <a href="mailto:dikopataka@uol.com.br" style="color:var(--azul);font-weight:700;">dikopataka@uol.com.br</a> ou preencher o <a href="#contato" style="color:var(--azul);font-weight:700;">formulário de contato</a>. Adoramos receber famílias.</p>
+            <p>É só chamar no <a href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer" style="color:var(--azul);font-weight:700;">WhatsApp (11) 97471-7114</a>, enviar e-mail para <a href="mailto:dikopataka@uol.com.br" style="color:var(--azul);font-weight:700;">dikopataka@uol.com.br</a> ou pelo <a href="#contato" style="color:var(--azul);font-weight:700;">Instagram</a>. Adoramos receber famílias.</p>
           </details>
         </div>
 
@@ -1824,10 +1815,6 @@
             </div>
 
             <div class="con-social">
-              <a href="https://wa.me/5511974717114" class="cs-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                WhatsApp
-              </a>
               <a href="https://instagram.com/dikopataka" class="cs-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 Instagram
@@ -1835,27 +1822,19 @@
             </div>
           </div>
 
-          <div class="form-card rv-r d2">
-            <h3>Agende uma visita</h3>
-            <p>Preencha e entraremos em contato em breve.</p>
-            <form id="contactForm" novalidate>
-              <div class="fg"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" placeholder="Seu nome" required autocomplete="name" /></div>
-              <div class="fg"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" /></div>
-              <div class="fg"><label for="telefone">Telefone / WhatsApp</label><input type="tel" id="telefone" name="telefone" placeholder="(11) 9 0000-0000" autocomplete="tel" /></div>
-              <div class="fg"><label for="mensagem">Mensagem (opcional)</label><textarea id="mensagem" name="mensagem" placeholder="Conte sobre a criança e o que gostaria de saber…"></textarea></div>
-              <!-- isca anti-spam: invisível para gente, preenchida por robô -->
-              <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-              <button type="submit" class="form-submit" id="formBtn">Enviar mensagem →</button>
-              <p class="form-erro" id="formErro" role="alert"></p>
-            </form>
-            <div class="form-ok" id="formOk" role="alert">
-              <div class="big">🎉</div>
-              <h3>Mensagem enviada!</h3>
-              <p>Recebemos seu contato e retornamos em breve.</p>
-              <a class="form-wa" id="formWa" href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer">
-                Prefere falar agora? Chamar no WhatsApp →
-              </a>
-            </div>
+          <div class="form-card wa-card rv-r d2">
+            <h3>Agende sua visita<br>pelo WhatsApp</h3>
+            <p>Fale direto com a gente: tiramos suas dúvidas na hora e marcamos o melhor dia para você conhecer a escola.</p>
+
+            <a class="wa-cta" href="https://wa.me/5511974717114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20na%20Diko%20Pataka." target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Chamar no WhatsApp
+            </a>
+
+            <span class="wa-num">(11) 97471-7114</span>
+            <span class="wa-hr">Segunda a sexta, das 07h00 às 19h00</span>
+
+            <p class="wa-alt">Prefere escrever? <a href="mailto:dikopataka@uol.com.br">dikopataka@uol.com.br</a></p>
           </div>
         </div>
       </div>
@@ -2025,78 +2004,6 @@
         e.preventDefault();
         scrollTo({ top: t.getBoundingClientRect().top + scrollY - 76, behavior:'smooth' });
       });
-    });
-
-    /* Phone mask */
-    const tel = document.getElementById('telefone');
-    if (tel) tel.addEventListener('input', () => {
-      let v = tel.value.replace(/\D/g,'').slice(0,11);
-      tel.value = v.length<=2 ? (v?`(${v}`:'') :
-                  v.length<=7 ? `(${v.slice(0,2)}) ${v.slice(2)}` :
-                  `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
-    });
-
-    /* Formulário: envia e-mail de verdade; WhatsApp fica como atalho opcional.
-       Só mostra "enviada" depois que o envio confirma. */
-    const ENDPOINT = 'https://formsubmit.co/ajax/dikopataka@uol.com.br';
-
-    document.getElementById('contactForm')?.addEventListener('submit', async e => {
-      e.preventDefault();
-      const form  = e.currentTarget;
-      const btn   = document.getElementById('formBtn');
-      const erro  = document.getElementById('formErro');
-      const nome  = document.getElementById('nome').value.trim();
-      const email = document.getElementById('email').value.trim();
-
-      const invalido = !nome ? 'nome'
-                     : !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'email'
-                     : null;
-      if (invalido) {
-        const el = document.getElementById(invalido);
-        el.focus(); el.style.borderColor = 'var(--laranja)';
-        setTimeout(() => el.style.borderColor = '', 2000);
-        return;
-      }
-
-      const fone = document.getElementById('telefone').value.trim();
-      const msg  = document.getElementById('mensagem').value.trim();
-
-      /* link de WhatsApp já com a mensagem pronta, para o botão do sucesso */
-      const txt = encodeURIComponent(
-        `Olá! Me chamo ${nome}.\nE-mail: ${email}${fone ? '\nTelefone: ' + fone : ''}${msg ? '\n\n' + msg : ''}`
-      );
-      document.getElementById('formWa').href = `https://wa.me/5511974717114?text=${txt}`;
-
-      erro.classList.remove('show');
-      btn.disabled = true;
-      btn.textContent = 'Enviando…';
-
-      try {
-        const r = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            nome, email,
-            telefone: fone || '(não informado)',
-            mensagem: msg || '(sem mensagem)',
-            _subject: `Site Diko Pataka — contato de ${nome}`,
-            _template: 'table',
-            _honey: form._honey.value
-          })
-        });
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-
-        form.style.display = 'none';
-        document.getElementById('formOk').classList.add('show');
-      } catch (_) {
-        /* não dizemos que enviou se não enviou: oferecemos os outros caminhos */
-        erro.innerHTML = 'Não conseguimos enviar agora. Chame no '
-          + '<a href="https://wa.me/5511974717114" target="_blank" rel="noopener noreferrer">WhatsApp (11) 97471-7114</a>'
-          + ' ou escreva para <a href="mailto:dikopataka@uol.com.br">dikopataka@uol.com.br</a>.';
-        erro.classList.add('show');
-        btn.disabled = false;
-        btn.textContent = 'Tentar novamente →';
-      }
     });
 
     /* Video: pause quando fora da tela (economia) */
